@@ -8,11 +8,14 @@ int main() {
     cin >> h;
     cin >> v;
     cin >> a;
-
-    g = 9.8;
-    t = v * sin(a) * (1 + sqrt(1 + (2 * g * h / (v * pow(v, 2) * pow(sin(a), 2))))) / g;
-    x = v * t * cos(a);
-    y = h + v * t * sin(a) - 0.5 * g * pow(t, 2);
+    
+    if ( (1 + (2 * g * h / (v * pow(v, 2) * pow(sin(a), 2)))) > 0) {
+        g = 9.8;
+        t = v * sin(a) * (1 + sqrt(1 + (2 * g * h / (v * pow(v, 2) * pow(sin(a), 2))))) / g;
+        x = v * t * cos(a);
+        y = h + v * t * sin(a) - 0.5 * g * pow(t, 2);
+    }
+    
 
     if (x < 0) {
         x = 0;
